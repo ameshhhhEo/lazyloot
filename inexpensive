@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LazyLoot - Memes for Loot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>LazyLoot</h1>
+  <p>Welcome to the laziest meme generator on Earth.</p>
+
+  <button id="generateMeme">Generate Meme</button>
+
+  <div id="memeArea">
+    <p id="memeText"></p>
+    <img id="memeImage" src="" alt="" style="display:none;">
+  </div>
+
+  <h2>Meme of the Day 🏆</h2>
+  <ul id="leaderboard"></ul>
+
+  <footer>Created by Amesh</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 30px;
+  background-color: #fafafa;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+#memeArea {
+  margin-top: 30px;
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 14px;
+  color: #777;
+}
+const memes = [
+  "Me waiting for my paycheck after doing nothing.",
+  "POV: You thought life gets easier after high school.",
+  "When the WiFi goes down for 5 minutes.",
+  "Starting a business called 'Nap Consultants'.",
+  "Getting rich from memes, one lazy click at a time."
+];
+
+const memeImages = [
+  "https://i.imgflip.com/5z61zy.jpg",
+  "https://i.imgflip.com/6c8w9f.jpg",
+  "https://i.imgflip.com/5qg6ey.jpg"
+];
+
+const leaderboard = [
+  "Couch Potato Supreme",
+  "Procrastinator of the Month",
+  "Chief Chill Officer"
+];
+
+document.getElementById('generateMeme').addEventListener('click', () => {
+  const randomText = memes[Math.floor(Math.random() * memes.length)];
+  const randomImage = memeImages[Math.floor(Math.random() * memeImages.length)];
+
+  document.getElementById('memeText').innerText = randomText;
+  document.getElementById('memeImage').src = randomImage;
+  document.getElementById('memeImage').style.display = "block";
+
+  updateLeaderboard(randomText);
+});
+
+function updateLeaderboard(meme) {
+  const list = document.getElementById('leaderboard');
+  const newItem = document.createElement('li');
+  newItem.textContent = meme;
+  list.insertBefore(newItem, list.firstChild);
+
+  if (list.childNodes.length > 5) {
+    list.removeChild(list.lastChild);
+  }
+}
