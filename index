@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LazyLoot - Memes for Loot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>LazyLoot</h1>
+  <p>Welcome to the laziest meme generator on Earth.</p>
+
+  <button id="generateMeme">Generate Meme</button>
+
+  <div id="memeArea">
+    <p id="memeText"></p>
+    <img id="memeImage" src="" alt="" style="display:none;">
+  </div>
+
+  <h2>Meme of the Day 🏆</h2>
+  <ul id="leaderboard"></ul>
+
+  <footer>Created by Amesh</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
